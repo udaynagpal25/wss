@@ -8,7 +8,7 @@
     "botbuilder-azure": "3.0.2",
     "express": "^4.15.3",
     "mongodb": "^2.2.29",
-    "mongoose": "^4.11.1",
+    "mongoose": "^4.10.8",
     "require": "^2.4.20"
   },
   "devDependencies": {

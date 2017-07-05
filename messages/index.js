@@ -5,21 +5,28 @@ For a complete walkthrough of creating this type of bot see the article at
 https://aka.ms/abs-node-luis
 -----------------------------------------------------------------------------*/
 "use strict";
-//var express = require('express');
+
+var express = require('express');
 //var bodyParser = require('body-parser');
-//var request = require('request');
-//var mongoose = require('mongoose');
+var request = require('request');
+var mongoose = require('mongoose');
 //var Schema = mongoose.Schema;
 
+var Detail = require('./model');
 /*var detailSchema = new Schema({
   name: { type: String, unique: true },
   details: { type: String, unique: true }
 });
-
-mongoose.connect('mongodb://test:test@ds129442.mlab.com:29442/ssdetails');
-
-var Detail = mongoose.model('Detail', detailSchema);
 */
+
+//mongoose.connect('mongodb://test:test@ds129442.mlab.com:29442/ssdetails');
+console.log('hello world');
+mongoose.connect('mongodb://' + 'test' + ':' + 'test' + '@ds129442.mlab.com:29442/ssdetails',{ useMongoClient: true, /* other options */ });
+
+//var Detail = mongoose.model('Detail', detailSchema);
+
+
+console.log('2');
 var builder = require("botbuilder");
 var botbuilder_azure = require("botbuilder-azure");
 var path = require('path');
@@ -53,7 +60,8 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
     session.send('Hello there, you sent this -> \'%s\'.', session.message.text);
 })
 .matches('solutions',(session,args) => {
-    session.send('this is new ', session.message.text);
+    session.send('solutionnew', session.message.text);
+    findDetails(company_about);
 })
 .matches('offerings',(session,args) => {
     session.send('this is about us \'%s\'.', session.message.text);
@@ -84,6 +92,34 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 .onDefault((session) => {
     session.send('Sorry, I did not understand \'%s\', You can ask for help.', session.message.text);
 });
+function findDetails(intentWit){
+
+  Detail.find({
+    name: intentWit
+  }, function(err, detail) {
+    if (err) console.log(err);
+    var str = detail[0].details;
+    var results = [];
+    var start = 0;
+    for (var i = 640; i < str.length; i += 640) { //jump to max
+      while (str[i] !== "." && i) i--; //go back to .
+      if (start === i) throw new Error("impossible str!");
+      results.push(str.substr(start, i - start)); //substr to result
+      start = i + 1; //set next start
+    }
+    results.push(str.substr(start));
+
+    for (var g = 0; g < results.length; g++) {
+      if (g === results.length - 1) {
+
+      } else {
+        results[g] = results[g] + ".";
+      }
+    }
+    session.send(results, session.message.text);
+  });
+}
+
 
 bot.dialog('/', intents);
 
@@ -97,3 +133,4 @@ if (useEmulator) {
 } else {
     module.exports = { default: connector.listen() }
 }
+console.log('end');
