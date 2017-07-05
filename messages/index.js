@@ -62,6 +62,7 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 .matches('solutions',(session,args) => {
   //  session.send('solutionnew', session.message.text);
     findDetails(company_about);
+    session.send('working?0',session.message.text);
 })
 .matches('offerings',(session,args) => {
     session.send('this is about us \'%s\'.', session.message.text);
