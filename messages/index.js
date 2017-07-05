@@ -93,11 +93,12 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
     session.send('Sorry, I did not understand \'%s\', You can ask for help.', session.message.text);
 });
 function findDetails(intentWit){
+  session.send('inside', session.message.text);
 
   Detail.find({
     name: intentWit
   }, function(err, detail) {
-    session.send('inside', session.message.text);
+
     if (err) console.log(err);
     var str = detail[0].details;
     var results = [];
