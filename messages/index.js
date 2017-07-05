@@ -61,7 +61,7 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 })
 .matches('solutions',(session,args) => {
   //  session.send('solutionnew', session.message.text);
-    findDetails(session);
+    findDetails(session,"company_about");
     session.send('working?0',session.message.text);
 })
 .matches('offerings',(session,args) => {
@@ -93,10 +93,8 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 .onDefault((session) => {
     session.send('Sorry, I did not understand \'%s\', You can ask for help.', session.message.text);
 });
-function findDetails(session){
-  session.send('Sorry, I did not understand \'%s\', You can ask for help.', session.message.text);
-}
-/*function findDetails(intentWit){
+
+function findDetails(session,intentWit){
   session.send('inside', session.message.text);
 
   Detail.find({
@@ -126,7 +124,7 @@ function findDetails(session){
   });
 }
 
-*/
+
 bot.dialog('/', intents);
 
 if (useEmulator) {
