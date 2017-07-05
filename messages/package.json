@@ -4,14 +4,16 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    
     "botbuilder": "^3.7.0",
-    "botbuilder-azure": "3.0.2"
+    "botbuilder-azure": "3.0.2",
+    "express": "^4.15.3",
+    "mongodb": "^2.2.29",
+    "mongoose": "^4.11.1",
+    "require": "^2.4.20"
   },
   "devDependencies": {
-      "restify": "^4.3.0"
-      
-  },  
+    "restify": "^4.3.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
