@@ -97,6 +97,7 @@ function findDetails(intentWit){
   Detail.find({
     name: intentWit
   }, function(err, detail) {
+    session.send('inside', session.message.text);
     if (err) console.log(err);
     var str = detail[0].details;
     var results = [];
