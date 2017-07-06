@@ -89,6 +89,14 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
     session.send('Company Model', session.message.text);
       findDetails(session,"company_model");
 })
+.matches('responsibility',(session,args) => {
+    session.send('Corporate responsibility', session.message.text);
+      findDetails(session,"responsibility");
+})
+.matches('Company model',(session,args) => {
+    session.send('Company Model', session.message.text);
+      findDetails(session,"company_model");
+})
 .matches('goodbye',(session,args) => {
     session.send('See you next time , GoodBye! :D', session.message.text);
 })
