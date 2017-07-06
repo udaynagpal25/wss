@@ -96,7 +96,7 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
     session.send('Full form of sopra is Society of programmers and research analysts ', session.message.text);
 })
 .matches('help',(session,args) => {
-    session.send('\r\n\tYou can ask about the following'+'\r\n\t 1. About Sopra Steria'+'\r\n\t 2.locations of sopra steria.'+'\r\n\t3.Market of Sopra Steria.'+'\r\n\t4.Solutions offered'+'\r\n\t 5.Life in Sopra Steria'+'\r\n\t6.Corporate responsibility of Sopra Steria'+'\r\n\t7.Model of Sopra Steria'+'\r\n\t8.About PLM CIMPA '+'\r\n\t9.Work Environment'+'\r\n\tBonus', session.message.text);
+    session.send('\r\n\tYou can ask about the following'+'\r\n\t1.About Sopra Steria'+'\r\n\t2.locations of sopra steria.'+'\r\n\t3.Market of Sopra Steria.'+'\r\n\t4.Solutions offered'+'\r\n\t5.Life in Sopra Steria'+'\r\n\t6.Corporate responsibility of Sopra Steria'+'\r\n\t7.Model of Sopra Steria'+'\r\n\t8.About PLM CIMPA '+'\r\n\t9.Work Environment'+'\r\n\tBonus', session.message.text);
 })
 
 
