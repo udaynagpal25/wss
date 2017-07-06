@@ -82,7 +82,7 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
       findDetails(session,"company_about");
 })
 .matches('company_Life',(session,args) => {
-    session.send('partners ', session.message.text);
+    session.send('Company Life', session.message.text);
       findDetails(session,"company_life");
 })
 .matches('Company model',(session,args) => {
