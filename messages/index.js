@@ -115,7 +115,7 @@ function findDetails(session,intentWit){
     var str = detail[0].details;
     var results = [];
     var start = 0;
-    for (var i = 640; i < str.length; i += 640) { //jump to max
+  /*  for (var i = 640; i < str.length; i += 640) { //jump to max
       while (str[i] !== "." && i) i--; //go back to .
       if (start === i) throw new Error("impossible str!");
       results.push(str.substr(start, i - start)); //substr to result
@@ -129,7 +129,8 @@ function findDetails(session,intentWit){
       } else {
         results[g] = results[g] + ".";
       }
-    }
+    }*/
+    results.push(str);
     session.send(results, session.message.text);
   });
 }
