@@ -61,29 +61,39 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 })
 .matches('solutions',(session,args) => {
   //  session.send('solutionnew', session.message.text);
-    findDetails(session,"company_about");
-    session.send('working?0',session.message.text);
+    findDetails(session,"company_solutions");
+  //  session.send('working?0',session.message.text);
 })
-.matches('offerings',(session,args) => {
+.matches('Company_WorkEx',(session,args) => {
     session.send('this is about us \'%s\'.', session.message.text);
+      findDetails(session,"company_workexp");
 })
 .matches('market',(session,args) => {
     session.send('this is about us \'%s\'.', session.message.text);
+      findDetails(session,"company_markets");
+
 })
 .matches('locations',(session,args) => {
     session.send('this is about us \'%s\'.', session.message.text);
+      findDetails(session,"company_locations");
 })
 .matches('partners',(session,args) => {
     session.send('partners ', session.message.text);
+      findDetails(session,"company_about");
 })
-.matches('software solutions',(session,args) => {
+.matches('company_Life',(session,args) => {
+    session.send('partners ', session.message.text);
+      findDetails(session,"company_life");
+})
+.matches('Company model',(session,args) => {
     session.send('Software solutions ', session.message.text);
+      findDetails(session,"company_model");
 })
 .matches('goodbye',(session,args) => {
     session.send('okay see you nexet time ', session.message.text);
 })
 .matches('soprafull',(session,args) => {
-    session.send('Full form of sopra is ', session.message.text);
+    session.send('Full form of sopra is Society of programmers and research analysts ', session.message.text);
 })
 .matches('help',(session,args) => {
     session.send('You can ask about 1.Sopra steria 2.locations of sopra steria. 3.market of Sopra Steria 4.Solutions offered etc ', session.message.text);
