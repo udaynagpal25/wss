@@ -57,24 +57,24 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 .matches('<yourIntent>')... See details at http://docs.botframework.com/builder/node/guides/understanding-natural-language/
 */
 .matches('Greeting',(session,args) => {
-    session.send('Hello there, you sent this -> \'%s\'.', session.message.text);
+    session.send('Hello there', session.message.text);
 })
 .matches('solutions',(session,args) => {
-  //  session.send('solutionnew', session.message.text);
+   session.send('solutions', session.message.text);
     findDetails(session,"company_solutions");
   //  session.send('working?0',session.message.text);
 })
 .matches('Company_WorkEx',(session,args) => {
-    session.send('this is about us \'%s\'.', session.message.text);
+    session.send('Work Environment', session.message.text);
       findDetails(session,"company_workexp");
 })
 .matches('market',(session,args) => {
-    session.send('this is about us \'%s\'.', session.message.text);
+    session.send('Sopra Steria Market.', session.message.text);
       findDetails(session,"company_markets");
 
 })
 .matches('locations',(session,args) => {
-    session.send('this is about us \'%s\'.', session.message.text);
+    session.send('Locations', session.message.text);
       findDetails(session,"company_locations");
 })
 .matches('partners',(session,args) => {
@@ -86,11 +86,11 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
       findDetails(session,"company_life");
 })
 .matches('Company model',(session,args) => {
-    session.send('Software solutions ', session.message.text);
+    session.send('Company Model', session.message.text);
       findDetails(session,"company_model");
 })
 .matches('goodbye',(session,args) => {
-    session.send('okay see you nexet time ', session.message.text);
+    session.send('See you next time , GoodBye! :D', session.message.text);
 })
 .matches('soprafull',(session,args) => {
     session.send('Full form of sopra is Society of programmers and research analysts ', session.message.text);
