@@ -96,7 +96,7 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
     session.send('Full form of sopra is Society of programmers and research analysts ', session.message.text);
 })
 .matches('help',(session,args) => {
-    session.send('You can ask about'+'\r\n" 1.Sopra steria 2.locations of sopra steria. 3.market of Sopra Steria 4.Solutions offered etc"', session.message.text);
+    session.send('\r\n\tYou can ask about'+'\r\n" 1.Sopra steria 2.locations of sopra steria. 3.market of Sopra Steria 4.Solutions offered etc"', session.message.text);
 })
 
 
