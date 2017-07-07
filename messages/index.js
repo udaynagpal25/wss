@@ -100,6 +100,9 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 .matches('goodbye',(session,args) => {
     session.send('See you next time , GoodBye! :D', session.message.text);
 })
+.matches('career',(session,args) => {
+    session.send('Hello! what skills do you have? ', session.message.text);
+})
 .matches('soprafull',(session,args) => {
     session.send('Full form of sopra is Society of programmers and research analysts ', session.message.text);
 })
