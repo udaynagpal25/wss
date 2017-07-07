@@ -106,6 +106,9 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 .matches('help',(session,args) => {
     session.send('\r\n\tYou can ask about the following'+'\r\n\t1.About Sopra Steria'+'\r\n\t2.locations of sopra steria.'+'\r\n\t3.Market of Sopra Steria.'+'\r\n\t4.Solutions offered'+'\r\n\t5.Life in Sopra Steria'+'\r\n\t6.Corporate responsibility of Sopra Steria'+'\r\n\t7.Model of Sopra Steria'+'\r\n\t8.About PLM CIMPA '+'\r\n\t9.Work Environment'+'\r\n\t10.Corporate Responsibility'+'\r\n\t11.Bonus', session.message.text);
 })
+.matches('Bot',(session,args) => {
+    session.send('Haha! I am a microsoft bot , connected to skype.', session.message.text);
+})
 
 
 .onDefault((session) => {
